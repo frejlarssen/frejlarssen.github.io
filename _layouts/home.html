@@ -1,55 +1,26 @@
-{% include header.html %}
+{% assign content = page.content %}
 
-{% if site.layout == 'stacked' %}
-  <div class="container-lg py-6 p-responsive text-center">
-    {% include masthead.html metadata=true %}
+{% assign posts_total = site.posts | size %}
 
-    <div {% if site.style == 'dark' %}class="text-white"{% endif %}>
-      {{ content }}
-    </div>
+{% assign user = site.github.owner %}
 
-    <div class="my-6">
-      {% include projects.html %}
-    </div>
+{% assign page_title = user.name %}
 
-    {% if site.topics %}
-      <div class="my-6">
-        {% include interests.html %}
-      </div>
-    {% endif %}
+{% assign meta_description = "The personal website of Frej Larssen" %}
 
-    {% unless posts_total == 0 %}
-      <div class="my-6">
-        {% include thoughts.html %}
-      </div>
-    {% endunless %}
-  </div>
-{% else %}
-  <div class="d-md-flex min-height-full {% unless site.style == 'dark' %}border-md-bottom{% endunless %}">
-    <div class="flex-self-stretch {% if site.style == 'dark' %}bg-gray-dark{% else %}border-md-right border-gray-light bg-white{% endif %} col-md-5 col-lg-4 col-xl-3 px-4 px-md-6 px-lg-7 py-6">
-      {% include masthead.html metadata=true %}
-    </div>
 
-    <div class="col-md-7 col-lg-8 col-xl-9 px-4 py-6 px-lg-7 border-top border-md-top-0 bg-gray-light" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %}>
-      <div class="mx-auto" style="max-width: 900px;">
-        {% unless content == ""  %}
-          <div class="f4 {% if site.style == 'dark' %}text-white{% endif %} mb-6">
-            {{ content }}
-          </div>
-        {% endunless %}
+<!doctype html>
+<html class="min-height-full">
+  {% include head.html %}
+  <body>
+    <h1>Frej Larssen</h1>
+    <h2>Computer Scientist in Stockholm</h2>
+    Graduating summer 2025
+    <p>This site is under development, and me too. </p>
 
-        {% include projects.html %}
-
-        {% if site.topics %}
-          {% include interests.html %}
-        {% endif %}
-
-        {% unless posts_total == 0 %}
-          {% include thoughts.html %}
-        {% endunless %}
-      </div>
-    </div>
-  </div>
-{% endif %}
-
-{% include footer.html %}
+  {% include projects.html %}
+  <p id="contacts">Contact me through <b><a href="mailto:frejlarssen@gmail.com">frejlarssen@gmail.com</a></b>
+    or <a href="https://www.linkedin.com/in/frej-larssen-5a118a234/"> <b>LinkedIn</b></a></p>
+    <!-- TODO: Resume (education, work, assiciations), interests right now -->
+  </body>
+</html>
