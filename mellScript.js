@@ -6,10 +6,5 @@ async function openEnvalope() {
     await new Promise(r => setTimeout(r, 6000));
     console.log("wait is over");
 
-    let x = "https://down"
-    let y = "load.tick"
-    let z = "ster.com/8nhg61"
-    let w = "kpej?lang=en"
-
-    window.location.href = x+y+z+w;
+    window.location.href = "https://www.youtube.com/watch?v=ooOELrGMn14";
 }
